@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login Page</title>
+<!-- Using a clean, simple font -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    color: #333;
+  }
+  .notice {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 90%;
+    text-align: center;
+  }
+  .alert {
+    color: #ff4d4d;
+    font-size: 10px; /* smaller font size for alerts */
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none;
+  }
+  form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #4A90E2;
+    outline: none;
+  }
+  button {
+    padding: 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    background-color: #4A90E2;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #357ABD;
+  }
+  /* Spinner styles */
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .buy-btn {
+    margin-top: 15px;
+    background-color: #f39c12;
+  }
+  .buy-btn:hover {
+    background-color: #e67e22;
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">
+  Ensure you have a valid account before logging in or make a purchase Incase you don't have one.
+</div>
+
+<form id="loginForm">
+  <div id="errorMsg" class="alert">Incorrect Details</div>
+  <div id="emailAlert" class="alert">Cannot be empty</div>
+  <div id="passwordAlert" class="alert">Cannot be empty</div>
+  <input type="text" id="email" placeholder="Email/Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button type="button" id="loginBtn">Log in</button>
+</form>
+
+<div class="buttons">
+  <button id="buyBtn" class="buy-btn">Buy Account</button>
+</div>
+
+<script>
+  const loginBtn = document.getElementById('loginBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  const emailAlert = document.getElementById('emailAlert');
+  const passwordAlert = document.getElementById('passwordAlert');
+
+  loginBtn.addEventListener('click', () => {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    let hasError = false;
+
+    // Reset alerts
+    emailAlert.style.display = 'none';
+    passwordAlert.style.display = 'none';
+
+    // Check email field
+    if (!email) {
+      emailAlert.style.display = 'block';
+      setTimeout(() => {
+        emailAlert.style.display = 'none';
+      }, 2000);
+      hasError = true;
+    }
+
+    // Check password field
+    if (!password) {
+      passwordAlert.style.display = 'block';
+      setTimeout(() => {
+        passwordAlert.style.display = 'none';
+      }, 2000);
+      hasError = true;
+    }
+
+    if (hasError) {
+      // Do not proceed
+      return;
+    }
+
+    // All fields filled, show spinner inside login button
+    const originalText = loginBtn.innerHTML;
+    loginBtn.innerHTML = '<div class="spinner"></div>';
+
+    // Simulate checking delay
+    setTimeout(() => {
+      loginBtn.innerHTML = originalText;
+      errorMsg.style.display = 'block';
+      setTimeout(() => {
+        errorMsg.style.display = 'none';
+      }, 2000);
+    }, 2000);
+  });
+
+  const buyBtn = document.getElementById('buyBtn');
+  buyBtn.addEventListener('click', () => {
+    window.location.href = 'index2.html';
+  });
+</script>
+
+</body>
+</html>
