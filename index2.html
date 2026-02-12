@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Account Levels</title>
+<!-- Google Fonts for better typography -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet"/>
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    padding: 40px 20px;
+    margin: 0;
+    color: #fff;
+  }
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  p.subtitle {
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: #f0f0f0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+  }
+  .levels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .level {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    padding: 50px 30px;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .level:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+  .level h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #ffd700;
+    letter-spacing: 1.2px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+  li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    color: #fff;
+  }
+  li::before {
+    content: "•";
+    color: #ffd700;
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .price {
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #00ffcc;
+    letter-spacing: 1px;
+  }
+  .order-btn {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.3em;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+  }
+  .order-btn:hover {
+    background: linear-gradient(45deg, #feb47b, #ff7e5f);
+    transform: scale(1.05);
+  }
+  /* Floating animation for attraction */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  .level {
+    animation: float 3s ease-in-out infinite;
+  }
+  /* Responsive adjustments */
+  @media(max-width: 1000px){
+    body {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.2em;
+    }
+    .levels {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Account Levels</h1>
+<p class="subtitle">Choose a plan that perfectly fits your transcription needs. Fast, clear, and affordable service for everyone.</p>
+
+<div class="levels">
+  <!-- Level 1 -->
+  <div class="level" style="border-top: 5px solid #ffd700;">
+    <h2>LEVEL 1</h2>
+    <ul>
+      <li>- 3 Pages Per Day @ Ksh250</li>
+      <li>- Research Essays</li>
+      <li>- English Audio to Text Translation</li>
+      <li>- Basic Transcription (interviews, podcasts)</li>
+      <li>- Video Subtitle Creation</li>
+      <li>- Short Document Formatting</li>
+      <li>- Email Transcriptions</li>
+    </ul>
+    <div class="price">Ksh 250</div>
+    <button class="order-btn" onclick="window.location.href='index3.html?fee=250'">Order Now</button>
+  </div>
+
+  <!-- Level 2 -->
+  <div class="level" style="border-top: 5px solid #00ffcc;">
+    <h2>LEVEL 2</h2>
+    <ul>
+      <li>- 5 Pages Per Day @ Ksh 500</li>
+      <li>- Research & Academic Essays</li>
+      <li>- English Audio & Video to Text</li>
+      <li>- Transcription of Webinars & Conferences</li>
+      <li>- Subtitle & Captioning Services</li>
+      <li>- Extended Document Formatting & Editing</li>
+      <li>- Transcription of Legal & Medical Records</li>
+      <li>- Podcast & Radio Show Transcriptions</li>
+    </ul>
+    <div class="price">Ksh 500</div>
+    <button class="order-btn" onclick="window.location.href='index3.html?fee=500'">Order Now</button>
+  </div>
+
+  <!-- Level 3 -->
+  <div class="level" style="border-top: 5px solid #ff69b4;">
+    <h2>LEVEL 3</h2>
+    <ul>
+      <li>- 10 Pages Per Day @ Ksh 1000</li>
+      <li>- Premium Research & Academic Papers</li>
+      <li>- High-Quality Video & Audio to Text</li>
+      <li>- Live Event & Conference Transcriptions</li>
+      <li>- Multilingual Transcriptions</li>
+      <li>- Large Volume & Bulk Orders</li>
+      <li>- Fast Turnaround & Priority Service</li>
+      <li>- Custom Transcription & Captioning Solutions</li>
+    </ul>
+    <div class="price">Ksh 1000</div>
+    <button class="order-btn" onclick="window.location.href='index3.html?fee=1000'">Order Now</button>
+  </div>
+</div>
+
+</body>
+</html>
