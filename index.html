@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TypeCash.com - Earn as a Freelance Writer</title>
+<!-- Google Fonts for stylish typography -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet"/>
+<style>
+  /* Reset styles */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    color: #222;
+  }
+
+  /* Cookies Banner */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  z-index: 9999;
+  font-size: 1em;
+}
+#cookie-banner p {
+  margin: 0;
+}
+#cookie-banner button {
+  background: #fff;
+  color: #6a11cb;
+  border: none;
+  padding: 8px 15px;
+  margin-left: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+#cookie-banner button:hover {
+  background: #e0d4f7;
+  color: #4b0082;
+}
+
+/* Navigation */
+nav {
+  width: 100%;
+  background: #2c3e50;
+  display: flex;
+  justify-content: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 998;
+}
+nav a {
+  color: #fff;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #00bfff;
+}
+
+/* Header with gradient background */
+header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 70px 20px;
+  text-align: center;
+  color: #fff;
+}
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+header p.subtitle {
+  font-size: 1.4em;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* Benefits section with vibrant gradient cards */
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+.benefit {
+  flex: 1 1 250px;
+  max-width: 330px;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 25px;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+.benefit:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+.benefit img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+.benefit h3 {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+.benefit p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Extra trust info with lively gradient */
+.extra-info {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 25px;
+  background: linear-gradient(135deg, #d2dae2, #f6e58d, #f0932b);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  font-size: 1.3em;
+  line-height: 1.6;
+  text-align: center;
+  color: #222;
+}
+
+/* Get Paid to WRITE */
+.write-section {
+  background: linear-gradient(135deg, #d2dae2, #f6e58d);
+  padding: 50px 20px;
+  margin: 50px auto;
+  max-width: 1200px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #333;
+}
+.write-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #4b0082;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+.write-subtitle {
+  font-size: 1.4em;
+  margin-bottom: 30px;
+  color: #7f8c8d;
+}
+.write-description {
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.write-description h3 {
+  margin-top: 20px;
+  color: #4b0082;
+}
+.write-description ul {
+  padding-left: 20px;
+}
+.write-description li {
+  margin-bottom: 10px;
+}
+
+/* Comments with floating animation for social proof */
+.comments-container {
+  position: relative;
+  height: 300px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.comment {
+  position: absolute;
+  background: #fff;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 1em;
+  max-width: 320px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: floatComment 8s linear forwards;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+@keyframes floatComment {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1.1);
+  }
+}
+.comment:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: scale(1.02);
+}
+
+/* Partnership logos with hover effects */
+.partnerships {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.logo {
+  width: 180px;
+  height: auto;
+  opacity: 0.8;
+  filter: grayscale(100%) brightness(1.2);
+  transition: all 0.3s ease;
+}
+.logo:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Call to Action Button - vibrant gradient with purple & complementary shades */
+.join-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #9b59b6, #2980b9, #27ae60);
+  color: #fff;
+  padding: 22px 50px;
+  font-size: 1.8em;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin: 50px auto;
+  display: block;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+.join-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* 2M+ Badge with lively pop */
+.credibility {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 2.5em;
+  font-family: 'Montserrat', sans-serif;
+  color: #2ecc71;
+  letter-spacing: 2px;
+  position: relative;
+}
+.credibility span {
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2.5em;
+  animation: pop 1s ease-out;
+}
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Footer styling */
+footer {
+  background: #2c3e50;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+footer a {
+  color: #f39c12;
+  text-decoration: none;
+  margin: 0 15px;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+footer p {
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px){
+  header h1 {
+    font-size: 2.5em;
+  }
+  .join-btn {
+    padding: 15px 30px;
+    font-size: 1.4em;
+  }
+  .benefit {
+    max-width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Cookies Banner -->
+<div id="cookie-banner">
+  <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="#" style="color:#fff;text-decoration:underline;">Cookie Policy</a>.</p>
+  <button onclick="document.getElementById('cookie-banner').style.display='none'">Accept</button>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#benefits">Benefits</a>
+  <a href="#write">Write</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- Header -->
+<header id="home">
+  <h1>Welcome to <span style="color:#9b59b6;">typeCash</span></h1>
+  <p class="subtitle">Join thousands of Kenyan freelancers earning from online writing. Trusted, reliable, and instant payouts. Start your journey today!</p>
+</header>
+
+<!-- Why Choose Us -->
+<div class="extra-info" id="benefits">
+  <h3>Why Choose Us?</h3>
+  <p>Earn seamlessly with instant payments directly to your M-Pesa. No delays, no hassle. Join a community of over 2 million users and start earning today!</p>
+  <p style="margin-top:10px; font-weight:bold; color:#27ae60;">Experience the fastest payouts in Kenya!</p>
+</div>
+
+<!-- Benefits -->
+<div class="benefits">
+  <div class="benefit">
+    <img src="your-logo-path/instantpay.png" alt="Instant Payouts"/>
+    <h3>Fast Payments</h3>
+    <p>Get paid instantly via M-Pesa or bank transfers. No waiting, no delays.</p>
+  </div>
+  <div class="benefit">
+    <img src="your-logo-path/trust.png" alt="Trusted Platform"/>
+    <h3>Trusted & Secure</h3>
+    <p>Join a platform trusted by thousands of Kenyan freelancers.</p>
+  </div>
+  <div class="benefit">
+    <img src="your-logo-path/support.png" alt="Support"/>
+    <h3>Live Support</h3>
+    <p>Our team is here to support you 24/7. No worries, just earn!</p>
+  </div>
+</div>
+
+<!-- Get Paid to WRITE -->
+<div class="write-section" id="write">
+  <h2>Get Paid to <span style="color:#9b59b6;">WRITE</span></h2>
+  <p class="write-subtitle">We're seeking writers of all skill levels. Join our community and start earning from your writing skills today!</p>
+  <div class="write-description">
+    <p>Writers Work connects anyone interested in writing with companies that need them desperately. We have thousands of writing jobs available, along with the training, tools, and support you need to land the best opportunities. Set your own hours, work from home, and build a rewarding freelance writing career!</p>
+    <h3>Types of jobs available:</h3>
+    <ul>
+      <li><strong>General Content:</strong> Write for websites needing blogs, help sections, landing pages, and proofreading/editing services.</li>
+      <li><strong>Blogging:</strong> Share your interests by creating engaging blog posts for brands nationwide.</li>
+      <li><strong>Copywriting:</strong> Help companies craft compelling sales copy — training provided!</li>
+      <li><strong>Social Media Posts:</strong> Manage and create content for brands’ social media platforms.</li>
+    </ul>
+    <h3>Requirements:</h3>
+    <ul>
+      <li>Must be 18 or older</li>
+      <li>Reliable internet connection</li>
+      <li>Excellent customer service skills</li>
+      <li>Willing to do great work for great pay</li>
+    </ul>
+    <h3>Pay:</h3>
+    <p>Earn anywhere from <strong>$20 - $65/hr</strong> depending on your skill level. We provide training to help you become a top-earning writer.</p>
+    <h3>Overview:</h3>
+    <ul>
+      <li>No experience necessary — we train you!</li>
+      <li>Live support, video training, courses, and more</li>
+      <li>Set your own hours, work from anywhere — remote freelancing</li>
+      <li>Part-time, full-time, or contract options available</li>
+    </ul>
+    <p style="margin-top:15px; font-weight:bold; color:#9b59b6;">Write better. Earn more. Start your freelance writing journey today!</p>
+  </div>
+</div>
+
+<!-- Social Proof Comments -->
+<div class="comments-container" id="commentsSection">
+  <!-- Comments will animate here -->
+</div>
+
+<!-- Partnership Logos -->
+<div class="partnerships">
+  <img src="your-logo-path/upworklogo.png" alt="Upwork" class="logo" title="Upwork"/>
+  <img src="your-logo-path/fiverrlogo.png" alt="Fiverr" class="logo" title="Fiverr"/>
+  <img src="your-logo-path/linkedinlogo.png" alt="LinkedIn" class="logo" title="LinkedIn"/>
+  <img src="your-logo-path/freelancerlogo.png" alt="Freelancer" class="logo" title="Freelancer"/>
+  <img src="your-logo-path/peopleperhourlogo.png" alt="PeoplePerHour" class="logo" title="PeoplePerHour"/>
+  <img src="your-logo-path/probloggerlogo.png" alt="ProBlogger" class="logo" title="ProBlogger"/>
+  <img src="your-logo-path/mediumlogo.png" alt="Medium" class="logo" title="Medium"/>
+</div>
+
+<!-- CTA Button -->
+<div style="text-align:center; margin:50px 0;">
+  <a href="index1.html" class="join-btn">Join Now & Start Earning!</a>
+</div>
+
+<!-- 2M+ Badge -->
+<div class="credibility">
+  <span>2M+</span> Satisfied Clients & Freelancers
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+  <p>&copy; 2026 typeCash.com | All rights reserved.</p>
+  <p>
+    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | 
+    <a href="#">Contact Us</a>
+  </p>
+  <p>
+    Follow us: 
+    <a href="#" target="_blank">Facebook</a> | 
+    <a href="#" target="_blank">Twitter</a> | 
+    <a href="#" target="_blank">Instagram</a>
+  </p>
+</footer>
+
+<!-- JavaScript for animated comments -->
+<script>
+  const comments = [
+    {name: 'Brian', gender: 'M', text: 'This website is the best for online writing!', time: '2 seconds ago'},
+    {name: 'Amina', gender: 'F', text: 'I just bought an account and made KSh 12,000 my first week!', time: '5 mins ago'},
+    {name: 'Eric', gender: 'M', text: 'Wonderful service, instant payout!', time: '3 hours ago'},
+    {name: 'Wambui', gender: 'F', text: 'Easy to use and very reliable.', time: '1 min ago'},
+    {name: 'Sammy', gender: 'M', text: 'Earned KSh 5,000 in a day!', time: '10 mins ago'},
+    {name: 'Nyambura', gender: 'F', text: 'Great platform for freelancers.', time: '30 mins ago'},
+    {name: 'Juma', gender: 'M', text: 'Very legit. I recommend it!', time: '4 hours ago'},
+    {name: 'Ciku', gender: 'F', text: 'Support team is very helpful.', time: '1 hour ago'},
+    {name: 'Kipkoech', gender: 'M', text: 'Started earning KSh 3,000 weekly.', time: '3 mins ago'},
+    {name: 'Asha', gender: 'F', text: 'Support and payments are fast!', time: '2 hours ago'},
+    {name: 'Mwangi', gender: 'M', text: 'My income has doubled!', time: '50 seconds ago'},
+    {name: 'Joyce', gender: 'F', text: 'The best freelancing site!', time: '5 hours ago'},
+    {name: 'Otieno', gender: 'M', text: 'Very legit. I recommend it!', time: '20 mins ago'},
+    {name: 'Njeri', gender: 'F', text: 'I love the quick payouts!', time: '15 mins ago'},
+    {name: 'Kimani', gender: 'M', text: 'Made KSh 10,000 in my first month!', time: '2 days ago'},
+    {name: 'Mercy', gender: 'F', text: 'Good pay, good support!', time: '1 hour ago'},
+    {name: 'Mwende', gender: 'F', text: 'Flexible and legit.', time: '3 hours ago'},
+    {name: 'Josphat', gender: 'M', text: 'I recommend to all my friends.', time: '6 mins ago'},
+    {name: 'Lilian', gender: 'F', text: 'Very professional platform.', time: '40 mins ago'},
+    {name: 'Karanja', gender: 'M', text: 'Earned KSh 8,000 last week!', time: '4 hours ago'},
+    {name: 'Achieng', gender: 'F', text: 'Reliable and easy to use.', time: '10 mins ago'},
+    {name: 'Moses', gender: 'M', text: 'Paid instantly after work.', time: '1 min ago'},
+    {name: 'Brenda', gender: 'F', text: 'Great for students!', time: '2 hours ago'},
+    {name: 'Baraka', gender: 'M', text: 'My online writing journey started here.', time: '5 mins ago'},
+    {name: 'Njeri', gender: 'F', text: 'Secure and legit.', time: '30 mins ago'},
+    {name: 'Peter', gender: 'M', text: 'I love earning from home.', time: '3 hours ago'},
+    {name: 'Grace', gender: 'F', text: 'Super fast payments!', time: '1 hour ago'},
+    {name: 'Victor', gender: 'M', text: 'Best platform for Kenyan freelancers.', time: '20 mins ago'},
+    {name: 'Faith', gender: 'F', text: 'Highly recommended!', time: '2 days ago'},
+    {name: 'Stephen', gender: 'M', text: 'Helped me earn extra cash.', time: '15 mins ago'}
+  ];
+
+  const commentsContainer = document.getElementById('commentsSection');
+
+  function createComment() {
+    const commentData = comments[Math.floor(Math.random() * comments.length)];
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'comment';
+
+    // Position randomly within container
+    const containerHeight = commentsContainer.offsetHeight;
+    const maxTop = containerHeight - 50;
+    const topPosition = Math.random() * maxTop;
+    commentDiv.style.top = topPosition + 'px';
+
+    // Light background for clarity
+    commentDiv.style.backgroundColor = 'rgba(255,255,255,0.9)';
+
+    // Content
+    commentDiv.innerHTML = `<strong style="color:#9b59b6;">${commentData.name}:</strong> ${commentData.text} <br><small style="font-size:0.75em;color:#555;">${commentData.time}</small>`;
+
+    commentsContainer.appendChild(commentDiv);
+
+    // Remove after animation
+    setTimeout(() => {
+      commentDiv.remove();
+    }, 8000);
+  }
+
+  // Generate comments periodically
+  setInterval(createComment, Math.random() * 2000 + 1000);
+</script>
+
+</body>
+</html>
